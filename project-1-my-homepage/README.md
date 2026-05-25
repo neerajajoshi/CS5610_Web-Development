@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-# Neeraja Joshi Professional Portfolio
+
+# Neeraja Joshi Portfolio
 
 A premium, state-of-the-art developer portfolio website built entirely using **Vanilla HTML5**, **CSS3**, and **ES6+ JS Modules**. Designed with modern glassmorphism, responsive visual grids, and custom interactive visual mathematics.
 
