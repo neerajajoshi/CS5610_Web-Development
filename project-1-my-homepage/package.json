@@ -1,0 +1,25 @@
+{
+  "name": "neeraja-joshi-portfolio",
+  "version": "1.0.0",
+  "description": "Premium modern portfolio website for Neeraja Joshi, built with vanilla HTML5, CSS3, and ES6+ modules.",
+  "type": "module",
+  "main": "js/main.js",
+  "scripts": {
+    "start": "npx serve frontend",
+    "lint": "eslint frontend/js",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "portfolio",
+    "vanilla",
+    "es6",
+    "css3"
+  ],
+  "author": "Neeraja Joshi",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "prettier": "^3.2.5",
+    "serve": "^14.2.1"
+  }
+}

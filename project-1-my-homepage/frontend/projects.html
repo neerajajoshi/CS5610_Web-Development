@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects | Neeraja Joshi Portfolio</title>
+    <meta
+      name="description"
+      content="Explore Neeraja Joshi's software innovations, including deep learning visualizers, local large language models, and web applications."
+    />
+    <meta name="author" content="Neeraja Joshi" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./images/favicon.svg" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar glass" id="navbar">
+      <div class="container nav-container">
+        <a href="index.html" class="logo" id="logo-anchor">
+          <span class="logo-symbol">N</span>
+          <span>Neeraja Joshi</span>
+        </a>
+
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu">☰</button>
+
+        <ul class="nav-menu" id="nav-menu">
+          <li class="nav-item"><a href="index.html">Home</a></li>
+          <li class="nav-item active"><a href="projects.html">Projects</a></li>
+          <li class="nav-item"><a href="smilesculpt.html">Smile AI Sandbox</a></li>
+        </ul>
+
+        <div class="nav-controls">
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Light/Dark Theme">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Projects Header -->
+    <header class="sandbox-hero">
+      <div class="container">
+        <span class="hero-label">/ SYSTEM WORKSPACE</span>
+        <h1 class="hero-title">Portfolio of <span class="text-gradient">Innovations</span></h1>
+      </div>
+    </header>
+
+    <!-- Projects Showcase Section -->
+    <main class="container" style="padding-bottom: 80px">
+      <!-- Filter Buttons -->
+      <div class="filters">
+        <!-- Standard buttons for active state representation -->
+        <button class="filter-btn active" data-filter="all" id="filter-all-btn">
+          All Projects
+        </button>
+        <button class="filter-btn" data-filter="ml" id="filter-ml-btn">
+          AI / Machine Learning
+        </button>
+        <button class="filter-btn" data-filter="web" id="filter-web-btn">Full-Stack Web</button>
+      </div>
+
+      <!-- Honeycomb-like Grid -->
+      <div class="projects-layout" id="projects-grid">
+        <!-- Project 1 -->
+        <article class="project-card glass" data-category="ml">
+          <div class="project-header-graphic">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+              ></path>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="tag">LLMs</span>
+              <span class="tag">Llama 3.2</span>
+              <span class="tag">NLP</span>
+            </div>
+            <h3>Local LLM for Text Summarization</h3>
+            <p>
+              An offline summarization pipeline running Llama 3.2 optimized on medical and research
+              text datasets. Implements active quantizations to enable secure local deployment with
+              zero external network leakage.
+            </p>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card glass" data-category="ml">
+          <div class="project-header-graphic">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"
+              ></path>
+              <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+              <line x1="9" y1="9" x2="9.01" y2="9"></line>
+              <line x1="15" y1="9" x2="15.01" y2="9"></line>
+            </svg>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="tag">Diffusion Models</span>
+              <span class="tag">Stable Diffusion XL</span>
+              <span class="tag">Generative AI</span>
+            </div>
+            <h3>SmileSculpt AI Dentistry Design</h3>
+            <p>
+              Advanced aesthetic transformation design system. Leverages inpainting diffusion
+              pipelines to generate highly accurate, lifelike visualization mockups for dental
+              surgery planning.
+            </p>
+            <a href="smilesculpt.html" class="project-link">
+              Interactive AI Sandbox
+              <svg viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card glass" data-category="web">
+          <div class="project-header-graphic">
+            <svg viewBox="0 0 24 24">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            </svg>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="tag">CodeIgniter MVC</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">Bootstrap</span>
+            </div>
+            <h3>EduFlex Learning Management System</h3>
+            <p>
+              A multi-role LMS solution developed under Model-View-Controller design guidelines.
+              Allows dynamic curriculum planning, real-time grading indices, and secured credential
+              enrollments.
+            </p>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project-card glass" data-category="web">
+          <div class="project-header-graphic">
+            <svg viewBox="0 0 24 24">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="tag">React.js</span>
+              <span class="tag">ASP.NET Core</span>
+              <span class="tag">SQL Server</span>
+            </div>
+            <h3>Make Your Trip Portal</h3>
+            <p>
+              An enterprise-scale travel itinerary architecture. Integrates robust tokenized
+              authentication, admin dashboard consoles, and high-performance server caches for
+              real-time schedule matching.
+            </p>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-content">
+        <p class="footer-text">© 2026 Neeraja Joshi. MIT Licensed.</p>
+        <div class="social-links">
+          <a
+            href="https://linkedin.com/in/neeraja-joshi-5a2836295/"
+            class="social-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            >LinkedIn</a
+          >
+          <a href="mailto:neeraja.joshi02@gmail.com" class="social-link">Email</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>

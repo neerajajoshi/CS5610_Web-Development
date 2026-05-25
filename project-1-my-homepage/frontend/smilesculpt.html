@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmileSculpt AI Sandbox | Neeraja Joshi Portfolio</title>
+    <meta
+      name="description"
+      content="Explore SmileSculpt AI Sandbox, an interactive dental treatment visualization simulator implementing Stable Diffusion XL pipelines."
+    />
+    <meta name="author" content="Neeraja Joshi" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./images/favicon.svg" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar glass" id="navbar">
+      <div class="container nav-container">
+        <a href="index.html" class="logo" id="logo-anchor">
+          <span class="logo-symbol">N</span>
+          <span>Neeraja Joshi</span>
+        </a>
+
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu">☰</button>
+
+        <ul class="nav-menu" id="nav-menu">
+          <li class="nav-item"><a href="index.html">Home</a></li>
+          <li class="nav-item"><a href="projects.html">Projects</a></li>
+          <li class="nav-item active"><a href="smilesculpt.html">Smile AI Sandbox</a></li>
+        </ul>
+
+        <div class="nav-controls">
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Light/Dark Theme">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sandbox Hero Header -->
+    <header class="sandbox-hero">
+      <div class="container">
+        <span class="hero-label">/ GENERATIVE AI PIPELINE</span>
+        <h1 class="hero-title">SmileSculpt <span class="text-gradient">AI Sandbox</span></h1>
+        <p class="hero-description" style="max-width: 600px; margin: 0 auto">
+          Interactive Dentistry Visualizer. Adjust sliders to simulate aesthetic transformations
+          using Stable Diffusion XL & ControlNet constraints.
+        </p>
+      </div>
+    </header>
+
+    <!-- Interactive Stage Section -->
+    <main class="container" style="padding-bottom: 80px">
+      <div class="sandbox-container">
+        <!-- Interactive Split Canvas Stage -->
+        <div class="sandbox-stage" id="smile-editor-stage">
+          <div class="sandbox-canvas-wrapper">
+            <!-- Draggable Split Viewer Canvas -->
+            <canvas id="smile-canvas" class="sandbox-canvas"></canvas>
+
+            <div class="sandbox-label label-before">Before (Original)</div>
+            <div class="sandbox-label label-after">After (AI Simulated)</div>
+          </div>
+        </div>
+
+        <!-- Controls Sidebar -->
+        <div class="sandbox-sidebar">
+          <!-- Preset Cases Selector -->
+          <div class="skills-category glass" style="padding: 1.5rem">
+            <h3
+              style="
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+                border-bottom: 1px solid var(--border-color);
+                padding-bottom: 0.3rem;
+              "
+            >
+              Select Case Study
+            </h3>
+            <div class="presets-grid">
+              <!-- Preset Item 1 -->
+              <button
+                class="preset-card active"
+                data-preset="patient-1"
+                aria-label="Load Patient Profile A Case Study"
+                id="preset-1-btn"
+              >
+                <svg
+                  viewBox="0 0 100 100"
+                  style="width: 100%; display: block; background-color: hsl(25, 40%, 80%)"
+                >
+                  <circle cx="50" cy="50" r="25" fill="hsl(350, 60%, 55%)" />
+                  <circle cx="40" cy="40" r="4" fill="#000" />
+                  <circle cx="60" cy="40" r="4" fill="#000" />
+                  <path d="M40 70 Q50 80 60 70" stroke="#000" stroke-width="3" fill="none" />
+                </svg>
+              </button>
+              <!-- Preset Item 2 -->
+              <button
+                class="preset-card"
+                data-preset="patient-2"
+                aria-label="Load Patient Profile B Case Study"
+                id="preset-2-btn"
+              >
+                <svg
+                  viewBox="0 0 100 100"
+                  style="width: 100%; display: block; background-color: hsl(30, 35%, 65%)"
+                >
+                  <circle cx="50" cy="50" r="25" fill="hsl(355, 55%, 45%)" />
+                  <circle cx="40" cy="40" r="4" fill="#000" />
+                  <circle cx="60" cy="40" r="4" fill="#000" />
+                  <path d="M38 72 Q50 62 62 72" stroke="#000" stroke-width="3" fill="none" />
+                </svg>
+              </button>
+              <!-- Preset Item 3 -->
+              <button
+                class="preset-card"
+                data-preset="patient-3"
+                aria-label="Load Patient Profile C Case Study"
+                id="preset-3-btn"
+              >
+                <svg
+                  viewBox="0 0 100 100"
+                  style="width: 100%; display: block; background-color: hsl(20, 45%, 90%)"
+                >
+                  <circle cx="50" cy="50" r="25" fill="hsl(340, 65%, 60%)" />
+                  <circle cx="40" cy="40" r="4" fill="#000" />
+                  <circle cx="60" cy="40" r="4" fill="#000" />
+                  <path d="M42 68 Q50 72 58 68" stroke="#000" stroke-width="3" fill="none" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Adjust Parameters Panel -->
+          <div
+            class="skills-category glass"
+            style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1.5rem"
+          >
+            <h3
+              style="
+                font-size: 1.1rem;
+                margin-bottom: 0.5rem;
+                border-bottom: 1px solid var(--border-color);
+                padding-bottom: 0.3rem;
+              "
+            >
+              Aesthetic Controls
+            </h3>
+
+            <div class="control-group">
+              <label for="smile-brightness">Teeth Brightness</label>
+              <input
+                type="range"
+                id="smile-brightness"
+                class="range-input"
+                min="60"
+                max="98"
+                value="85"
+              />
+            </div>
+
+            <div class="control-group">
+              <label for="smile-alignment">Dental Alignment (Orthodontic Correction)</label>
+              <input
+                type="range"
+                id="smile-alignment"
+                class="range-input"
+                min="0.0"
+                max="1.0"
+                step="0.05"
+                value="0.9"
+              />
+            </div>
+
+            <div class="control-group">
+              <label for="smile-width">Buccal Corridor (Smile Width)</label>
+              <input
+                type="range"
+                id="smile-width"
+                class="range-input"
+                min="0.8"
+                max="1.2"
+                step="0.02"
+                value="1.0"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Algorithm Deep Dive Cards -->
+      <section class="skills-grid">
+        <div class="skills-category glass">
+          <h3>Generative Inpainting</h3>
+          <p style="color: var(--text-secondary); font-size: 0.9rem">
+            Traditional models struggle with dental structures, often producing blurry texturing or
+            irregular teeth counts. SmileSculpt utilizes high-precision localized mask guidelines
+            combined with Stable Diffusion XL (SDXL) and custom ControlNet constraints. This locks
+            spatial tooth configurations in place, enabling lifelike shading, matching textures, and
+            realistic occlusion layers.
+          </p>
+        </div>
+
+        <div class="skills-category glass">
+          <h3>Clinical ControlNet Bounds</h3>
+          <p style="color: var(--text-secondary); font-size: 0.9rem">
+            To prevent the model from generating anatomically impossible mouth sizes or shape
+            bounds, custom depth maps and canny edge matrices are calculated from original patient
+            structures. These bounds act as strict structural locks, forcing the generative
+            diffusion model to focus exclusively on texture, brightness adjustment, and
+            micro-alignment variables.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-content">
+        <p class="footer-text">© 2026 Neeraja Joshi. MIT Licensed.</p>
+        <div class="social-links">
+          <a
+            href="https://linkedin.com/in/neeraja-joshi-5a2836295/"
+            class="social-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            >LinkedIn</a
+          >
+          <a href="mailto:neeraja.joshi02@gmail.com" class="social-link">Email</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>

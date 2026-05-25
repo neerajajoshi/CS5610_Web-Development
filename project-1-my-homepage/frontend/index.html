@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neeraja Joshi | MSCS Student & AI Researcher</title>
+    <meta
+      name="description"
+      content="Professional portfolio of Neeraja Joshi, MSCS student at Northeastern University, specializing in generative AI, 3D deep learning, and full-stack development."
+    />
+    <meta name="author" content="Neeraja Joshi" />
+    <meta
+      name="keywords"
+      content="Neeraja Joshi, AI, Machine Learning, MSCS, Northeastern, Full Stack Developer, eInfochips, SmileSculpt, Research Intern"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./images/favicon.svg" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar glass" id="navbar">
+      <div class="container nav-container">
+        <a href="index.html" class="logo" id="logo-anchor">
+          <span class="logo-symbol">N</span>
+          <span>Neeraja Joshi</span>
+        </a>
+
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu">☰</button>
+
+        <ul class="nav-menu" id="nav-menu">
+          <li class="nav-item active"><a href="index.html">Home</a></li>
+          <li class="nav-item"><a href="projects.html">Projects</a></li>
+          <li class="nav-item"><a href="smilesculpt.html">Smile AI Sandbox</a></li>
+        </ul>
+
+        <div class="nav-controls">
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Light/Dark Theme">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="container hero-grid">
+        <div class="hero-info">
+          <span class="hero-label">/ HELLO WORLD</span>
+          <p class="hero-description">
+            I am Neeraja Joshi, a Master of Science in Computer Science student at
+            <strong>Northeastern University</strong>. My journey spans developing robust full-stack
+            enterprise solutions at <em>eInfochips</em> to researching state-of-the-art 3D shape
+            reconstruction models at <em>IIT Gandhinagar</em>. I design software that is
+            intelligent, responsive, and beautiful.
+          </p>
+          <div class="hero-actions">
+            <!-- Download resume action  -->
+            <a
+              href="./Resume_Neeraja-Joshi.pdf"
+              class="btn btn-primary"
+              download="Resume_Neeraja_Joshi.pdf"
+              id="download-cv-btn"
+              >Download CV</a
+            >
+            <a href="projects.html" class="btn btn-secondary" id="view-projects-btn"
+              >View My Innovations</a
+            >
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="avatar-container">
+            <!-- SVG Coding Avatar representing deep neural structures & web design -->
+            <svg
+              class="avatar-img"
+              viewBox="0 0 100 100"
+              role="img"
+              aria-label="Neeraja Joshi Abstract AI Developer Icon"
+            >
+              <defs>
+                <linearGradient id="avatarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#6366f1" />
+                  <stop offset="100%" stop-color="#14b8a6" />
+                </linearGradient>
+              </defs>
+              <rect width="100" height="100" fill="#0d0f14" />
+              <!-- Stylized face outline -->
+              <circle cx="50" cy="45" r="28" fill="url(#avatarGrad)" opacity="0.15" />
+              <!-- Grid pattern representing technology structure -->
+              <path
+                d="M 20 20 L 80 80 M 80 20 L 20 80 M 50 10 L 50 90 M 10 50 L 90 50"
+                stroke="rgba(255,255,255,0.06)"
+                stroke-width="0.5"
+              />
+              <!-- Abstract neural glowing nodes -->
+              <circle cx="50" cy="35" r="6" fill="#6366f1" filter="drop-shadow(0 0 6px #6366f1)" />
+              <circle cx="35" cy="55" r="5" fill="#14b8a6" filter="drop-shadow(0 0 6px #14b8a6)" />
+              <circle cx="65" cy="55" r="5" fill="#14b8a6" filter="drop-shadow(0 0 6px #14b8a6)" />
+              <circle cx="50" cy="72" r="4" fill="#818cf8" filter="drop-shadow(0 0 6px #818cf8)" />
+              <!-- Connections representing algorithms -->
+              <line x1="50" y1="35" x2="35" y2="55" stroke="#6366f1" stroke-width="1.5" />
+              <line x1="50" y1="35" x2="65" y2="55" stroke="#6366f1" stroke-width="1.5" />
+              <line x1="35" y1="55" x2="50" y2="72" stroke="#14b8a6" stroke-width="1.5" />
+              <line x1="65" y1="55" x2="50" y2="72" stroke="#14b8a6" stroke-width="1.5" />
+              <!-- Tech tag boxes -->
+              <rect
+                x="28"
+                y="22"
+                width="44"
+                height="6"
+                rx="3"
+                fill="rgba(255, 255, 255, 0.08)"
+                stroke="rgba(255,255,255,0.2)"
+                stroke-width="0.5"
+              />
+              <text
+                x="50"
+                y="26.5"
+                font-family="'Outfit', sans-serif"
+                font-size="3"
+                fill="#fff"
+                text-anchor="middle"
+                letter-spacing="0.5"
+              >
+                NEURAL NETWORKS
+              </text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Timeline / Journey Section -->
+    <section class="section" id="journey">
+      <div class="container">
+        <h2 class="section-title">My Journey</h2>
+
+        <div class="journey-grid">
+          <!-- Headers -->
+          <h3 class="journey-subtitle academic-header">Academic Journey</h3>
+          <h3 class="journey-subtitle industry-header">Industry Journey</h3>
+
+          <!-- Row 1 -->
+          <div class="timeline-single-item academic-item academic-item-1">
+            <span class="timeline-single-badge"></span>
+            <div class="timeline-card glass">
+              <span class="timeline-date">2025 - Present</span>
+              <h3>Master of Science, Computer Science</h3>
+              <div class="timeline-institution">Northeastern University • Boston, MA</div>
+              <p class="timeline-desc">
+                Focussing on advanced systems, high-performance computing, and spatial machine
+                learning algorithms.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-single-item industry-item industry-item-1">
+            <span class="timeline-single-badge"></span>
+            <div class="timeline-card glass">
+              <span class="timeline-date">2024 - 2025</span>
+              <h3>Full Stack Developer Intern</h3>
+              <div class="timeline-institution">eInfochips - An Arrow Company • Gujarat, India</div>
+              <p class="timeline-desc">
+                Engineered full-stack CRM and mobile e-commerce tools using Express, JavaScript
+                (ES6+), and React Native, increasing performance and security pipelines by 25%.
+              </p>
+            </div>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="timeline-single-item academic-item academic-item-2 last-item">
+            <span class="timeline-single-badge"></span>
+            <div class="timeline-card glass">
+              <span class="timeline-date">2021 - 2025</span>
+              <h3>B.Tech, Computer Science (Honors)</h3>
+              <div class="timeline-institution">Sarvajanik University • Gujarat, India</div>
+              <p class="timeline-desc">
+                Graduated with a perfect CGPA: 4.0/4.0 with special honors in Data Science systems.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-single-item industry-item industry-item-2 last-item">
+            <span class="timeline-single-badge"></span>
+            <div class="timeline-card glass">
+              <span class="timeline-date">2024 (Summer)</span>
+              <h3>Deep Learning Research Intern</h3>
+              <div class="timeline-institution">
+                Indian Institute of Technology (IIT) Gandhinagar • Gujarat, India
+              </div>
+              <p class="timeline-desc">
+                Researched 3D point cloud generation and spatial structural completion using
+                mathematical shape distances (Chamfer & Earth Mover's Distance).
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+      <div class="container">
+        <h2 class="section-title">Core Technical Strengths</h2>
+
+        <div class="skills-grid">
+          <!-- Category 1 -->
+          <div class="skills-category glass">
+            <h3>Languages</h3>
+            <div class="skills-list">
+              <div class="skill-item">
+                <h4>Python & C#</h4>
+              </div>
+              <div class="skill-item">
+                <h4>JavaScript & TypeScript (ES6+)</h4>
+              </div>
+              <div class="skill-item">
+                <h4>Java & C</h4>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 2 -->
+          <div class="skills-category glass">
+            <h3>Web Architectures</h3>
+            <div class="skills-list">
+              <div class="skill-item">
+                <h4>React & React Native</h4>
+              </div>
+              <div class="skill-item">
+                <h4>Node.js & Express</h4>
+              </div>
+              <div class="skill-item">
+                <h4>Spring Boot & ASP.NET Core</h4>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 3 -->
+          <div class="skills-category glass">
+            <h3>Machine Learning & Cloud</h3>
+            <div class="skills-list">
+              <div class="skill-item">
+                <h4>Generative AI (Stable Diffusion, LLMs)</h4>
+              </div>
+              <div class="skill-item">
+                <h4>TensorFlow & NumPy</h4>
+              </div>
+              <div class="skill-item">
+                <h4>AWS, Docker, K8s</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section class="section" id="publications">
+      <div class="container">
+        <h2 class="section-title">Academic Publications</h2>
+        <div class="timeline">
+          <div
+            class="timeline-item"
+            style="width: 100%; left: 0; padding-left: 5rem; text-align: left; margin-bottom: 2rem"
+          >
+            <span class="timeline-badge" style="left: 2.5rem"></span>
+            <div class="timeline-card glass">
+              <span class="timeline-date">Journal Paper (2025)</span>
+              <h3>
+                Improved Accuracy for Heart Disease Diagnosis Using Machine Learning Techniques
+              </h3>
+              <div class="timeline-institution">
+                Journal of Informatics and Web Engineering • DOI: 10.33093/jiwe.2025.4.1.4
+              </div>
+              <p class="timeline-desc">
+                Engineered comparative classification assemblies to optimize predictive accuracy for
+                high-risk diagnostics.
+              </p>
+            </div>
+          </div>
+          <div
+            class="timeline-item"
+            style="width: 100%; left: 0; padding-left: 5rem; text-align: left"
+          >
+            <span class="timeline-badge" style="left: 2.5rem"></span>
+            <div class="timeline-card glass">
+              <span class="timeline-date">Journal Paper (2025)</span>
+              <h3>SmileSculpt: Sculpting Smiles Digitally</h3>
+              <div class="timeline-institution">
+                Procedia Computer Science • DOI: 10.1016/j.procs.2025.03.269
+              </div>
+              <p class="timeline-desc">
+                Designed an advanced generative architecture using Stable Diffusion inpaint matrices
+                to synthesize aesthetic dental treatment predictions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-content">
+        <p class="footer-text">© 2026 Neeraja Joshi. MIT Licensed.</p>
+        <div class="social-links">
+          <a
+            href="https://linkedin.com/in/neeraja-joshi-5a2836295/"
+            class="social-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            >LinkedIn</a
+          >
+          <a href="mailto:neeraja.joshi02@gmail.com" class="social-link">Email</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
