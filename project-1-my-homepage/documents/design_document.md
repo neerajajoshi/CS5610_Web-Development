@@ -68,16 +68,43 @@ I wanted to ensure my portfolio speaks directly to the different types of profes
 
 ## 4. Visual Layout & Mockups
 
-The interface focuses on deep slate backdrops, custom indigo accent gradients, and frosted glass navigation modules.
+The interface focuses on deep slate backdrops, custom indigo accent gradients, and frosted glass navigation modules. All views are designed to be fully responsive and support active light/dark mode persistence.
 
-### Homepage Mockup Reference
+### Mockup References & Layout Specifications
 
-Here is the visual layout mockup for the homepage showing the navigation header, hero introduction, dual-column timeline grid, and technical skills:
+#### 1. Homepage & Hero Section
+* **Screenshot**: ![Homepage & Hero Section](./screenshots/screenshot%201%20homepage.png)
+* **Specification**: Features a glassmorphic navbar, glowing introductory bio, and a high-visibility, direct "Download CV" action button to address **Persona A (Sarah's)** need for speed.
 
-![Homepage Layout Mockup](../frontend/images/screenshot.png)
+#### 2. Journey Timeline (Academic vs. Industry)
+* **Screenshot**: ![Journey Timeline](./screenshots/screenshot%202%20my%20journey.png)
+* **Specification**: Organized side-by-side using CSS Grid. Adjacent academic and professional cards dynamically stretch to identical heights, maintaining a clean visual baseline.
 
-### Layout Specifications:
+#### 3. Core Technical Skills Grid
+* **Screenshot**: ![Core Technical Skills](./screenshots/screenshot%203%20core%20skills.png)
+* **Specification**: Skills are grouped into clean, categorized cards with glowing cyan accent bullets for fast legibility and scanning.
 
-- **Timeline Row Alignment**: The Academic and Industry journeys are organized side-by-side in matching rows on desktop. They share a single CSS Grid container, meaning adjacent cards stretch to identical heights regardless of description length.
-- **Clean Skills Grid**: Skills are listed in clean category boxes with custom glowing accent bullet-dots, keeping the interface uncluttered.
-- **Draggable Sandbox Canvas**: The sandbox viewport features an interactive split-screen divider with a central handle, letting users compare before/after states seamlessly.
+#### 4. Academic Publications
+* **Screenshot**: ![Academic Publications](./screenshots/screenshot%204%20academic%20publications.png)
+* **Specification**: Showcases dental AI and computer vision research with direct DOI hyperlinks, meeting **Persona B (Dr. Chen's)** academic verification requirements.
+
+#### 5. AI & Machine Learning Projects Grid
+* **Screenshot**: ![AI & ML Projects Grid](./screenshots/screenshot%205%20ML%20projects.png)
+* **Specification**: Project cards filterable dynamically using JavaScript modules, separating spatial AI and computer vision work.
+
+#### 6. Full-Stack Web Projects Grid
+* **Screenshot**: ![Full-Stack Web Projects Grid](./screenshots/screenshot%206%20SE%20projects.png)
+* **Specification**: The corresponding filtered view displaying full-stack software development projects.
+
+#### 7. SmileSculpt AI Sandbox (Teeth Alignment - Original State)
+* **Screenshot**: ![SmileSculpt AI Sandbox (Original)](./screenshots/screenshot%207%20ai%20genearted%20page%201.0.png)
+* **Specification**: Houses the canvas sandbox with range inputs for teeth parameters, designed for **Persona C (Dr. Patel)** to play with alignment variables.
+
+#### 8. SmileSculpt AI Sandbox (Interactive Split Before/After Slider)
+* **Screenshot**: ![SmileSculpt AI Sandbox (Split Slider)](./screenshots/screenshot%208%20ai%20genearted%20page%202.0.png)
+* **Specification**: Uses a custom-built canvas editor with a draggable split-view handle so users can slide left/right to compare original vs. aligned/whitened states in real-time.
+
+#### 9. Light Mode Interface Option
+* **Screenshot**: ![Light Mode Theme Option](./screenshots/screenshot%209%20light%20mode.png)
+* **Specification**: Full CSS color scheme reversal utilizing root HSL variable swaps and saving the choice to `localStorage` for cross-page persistence.
+
