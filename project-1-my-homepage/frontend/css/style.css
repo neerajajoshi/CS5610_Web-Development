@@ -1,6 +1,23 @@
 /* ==========================================================================
    Neeraja Joshi Portfolio Stylesheet 
    ========================================================================== */
+/* CODE REVIEW by Sanjay Sundar BV:
+   Great use of HSL color tokens and CSS variables!
+   Suggestion 1: Add a transition speed variable:
+   --transition-speed: 0.3s;
+   --transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
+   Use var(--transition-speed) everywhere instead of hardcoded 0.3s values.
+   
+   Suggestion 2: Add border-radius variables for consistency:
+   --radius-sm: 4px;
+   --radius-md: 8px;
+   --radius-lg: 16px;
+   
+   Suggestion 3: Consider adding prefers-reduced-motion support:
+   @media (prefers-reduced-motion: reduce) { 
+     * { animation-duration: 0.01ms !important; }
+   }
+   This improves accessibility for users with motion sensitivity. */
 
 /* 1. Imports & Typography */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap");
