@@ -19,6 +19,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Session setup
+// One thing you might do here intead of the fallback in server.js is setting the fallback in the env variable
+// if there's no session secret set on live then the fallback could be visible and become a security risk
 app.use(
   session({
     secret: process.env.SESSION_SECRET || "natyakosha_fallback_secret",
@@ -74,7 +76,11 @@ connectDB()
       "Critical: Failed to start server due to database connection issue",
       err,
     );
-  });const express = require("express");
+  });
+//Duplicated Code here, multiple const calls and re-runs will probably cause crashes.
+/*
+const express = require("express");
+
 const session = require("express-session");
 const passport = require("./config/passport");
 const authRoutes = require("./routes/auth");
@@ -151,3 +157,4 @@ connectDB()
       err,
     );
   });
+*/
