@@ -1,0 +1,17 @@
+{
+  "name": "natyakosha-root",
+  "version": "1.0.0",
+  "description": "Natyakosha Dance Treasury Root",
+  "scripts": {
+    "seed": "node backend/scripts/seed.js",
+    "start": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
+    "format": "prettier --write \"backend/**/*.js\" \"frontend/src/**/*.{js,jsx,css}\"",
+    "format:check": "prettier --check \"backend/**/*.js\" \"frontend/src/**/*.{js,jsx,css}\""
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "devDependencies": {
+    "prettier": "^3.4.2"
+  }
+}
