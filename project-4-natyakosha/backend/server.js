@@ -50,6 +50,14 @@ app.get("/api/status", (req, res) => {
   });
 });
 
+// Serve static assets from frontend/dist in production
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+// Catch-all route to serve React's index.html for client-side routing
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
+});
+
 // Start Database connection then listen on port
 connectDB()
   .then(() => {
