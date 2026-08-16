@@ -55,3 +55,31 @@
   background-color: var(--danger-color);
   color: white;
 }
+
+/* Category Sections and Headers in Directory List */
+.category-header-wrapper {
+  margin-bottom: 0.75rem;
+}
+
+.category-header {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+}
+
+.curriculum-category-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.no-data-sm {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin: 0 0 0.5rem 0.5rem;
+}
+

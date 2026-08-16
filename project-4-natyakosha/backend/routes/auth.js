@@ -54,13 +54,21 @@ router.post("/login", (req, res, next) => {
         .status(400)
         .json({ error: info.message || "Invalid credentials." });
     }
-    req.logIn(user, (err) => {
+    req.logIn(user, async (err) => {
       if (err) {
         return res
           .status(500)
           .json({ error: "Login session establishment failed." });
       }
-      return res.json(user);
+      try {
+        const isDefaultPassword = await comparePassword("student123", user.password);
+        const userSafe = { ...user, isDefaultPassword };
+        delete userSafe.password;
+        return res.json(userSafe);
+      } catch (error) {
+        console.error("Error checking default password on login:", error);
+        return res.json(user);
+      }
     });
   })(req, res, next);
 });
@@ -76,9 +84,24 @@ router.post("/logout", (req, res, next) => {
 });
 
 // GET /api/auth/me
-router.get("/me", (req, res) => {
+router.get("/me", async (req, res) => {
   if (req.isAuthenticated()) {
-    res.json(req.user);
+    try {
+      const { getDB } = require("../config/db");
+      const db = getDB();
+      const user = await db.collection("users").findOne({ _id: req.user._id });
+      if (user) {
+        const isDefaultPassword = await comparePassword("student123", user.password);
+        const userSafe = { ...user, isDefaultPassword };
+        delete userSafe.password;
+        res.json(userSafe);
+      } else {
+        res.status(404).json({ error: "User not found." });
+      }
+    } catch (error) {
+      console.error("Error fetching authenticated user details:", error);
+      res.status(500).json({ error: "Internal server error." });
+    }
   } else {
     res.status(401).json({ error: "Not authenticated." });
   }
@@ -96,6 +119,13 @@ router.put("/change-password", async (req, res) => {
     return res
       .status(400)
       .json({ error: "Current password and new password are required." });
+  }
+
+  const passwordRegex = /^(?=.*[0-9])(?=.*[^A-Za-z0-9]).{6,}$/;
+  if (!passwordRegex.test(newPassword)) {
+    return res.status(400).json({
+      error: "New password must be at least 6 characters long, contain at least one number, and contain at least one special character."
+    });
   }
 
   try {

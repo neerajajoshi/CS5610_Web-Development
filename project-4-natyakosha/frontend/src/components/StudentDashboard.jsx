@@ -3,8 +3,11 @@ import PropTypes from "prop-types";
 import "./StudentDashboard.css";
 
 function StudentDashboard({ user }) {
-  const [activeTab, setActiveTab] = useState("attendance"); // 'attendance', 'fees', 'account'
+  const [activeTab, setActiveTab] = useState(() => {
+    return user?.isDefaultPassword ? "account" : "attendance";
+  }); // 'attendance', 'fees', 'account'
   const [attendance, setAttendance] = useState(null);
+  const [isDefaultPassword, setIsDefaultPassword] = useState(!!user?.isDefaultPassword);
   const [fees, setFees] = useState([]);
   const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
@@ -53,6 +56,12 @@ function StudentDashboard({ user }) {
       return;
     }
 
+    const passwordRegex = /^(?=.*[0-9])(?=.*[^A-Za-z0-9]).{6,}$/;
+    if (!passwordRegex.test(newPassword)) {
+      setPassError("New password must be at least 6 characters long, contain at least one number, and contain at least one special character.");
+      return;
+    }
+
     try {
       const response = await fetch("/api/auth/change-password", {
         method: "PUT",
@@ -66,6 +75,7 @@ function StudentDashboard({ user }) {
       }
 
       setPassSuccess("Your password has been changed successfully!");
+      setIsDefaultPassword(false);
       setCurrentPassword("");
       setNewPassword("");
       setConfirmPassword("");
@@ -133,6 +143,14 @@ function StudentDashboard({ user }) {
           >
             ✕
           </button>
+        </div>
+      )}
+
+      {isDefaultPassword && (
+        <div className="alert error security-alert" style={{ marginBottom: "1.5rem" }}>
+          <span>
+            <strong>Security Notice:</strong> You are currently logged in with the default password <code>student123</code>. Please update your password immediately using the form below under the <strong>Account Details</strong> tab to secure your account.
+          </span>
         </div>
       )}
 

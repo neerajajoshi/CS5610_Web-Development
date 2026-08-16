@@ -7,6 +7,7 @@ function TeacherFees() {
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [selectedBatch, setSelectedBatch] = useState(""); // Batch timing filter
+  const [studentSearch, setStudentSearch] = useState(""); // Student search filter
 
   const fetchFeesData = async () => {
     setLoading(true);
@@ -71,14 +72,28 @@ function TeacherFees() {
     batches: [],
   };
 
-  // Dynamic filtering based on selectedBatch
-  const filteredLedger = selectedBatch
-    ? ledger.filter((p) => p.batchId === selectedBatch)
-    : ledger;
+  // Dynamic filtering based on selectedBatch and studentSearch
+  const filteredLedger = ledger.filter((p) => {
+    const matchesBatch = selectedBatch ? p.batchId === selectedBatch : true;
+    const studentFullName = p.firstName && p.lastName 
+      ? `${p.firstName} ${p.lastName} ${p.username}`.toLowerCase()
+      : p.username.toLowerCase();
+    const matchesStudent = studentSearch 
+      ? studentFullName.includes(studentSearch.toLowerCase().trim())
+      : true;
+    return matchesBatch && matchesStudent;
+  });
 
-  const filteredUnpaid = selectedBatch
-    ? unpaidList.filter((p) => p.batchId === selectedBatch)
-    : unpaidList;
+  const filteredUnpaid = unpaidList.filter((p) => {
+    const matchesBatch = selectedBatch ? p.batchId === selectedBatch : true;
+    const studentFullName = p.firstName && p.lastName 
+      ? `${p.firstName} ${p.lastName} ${p.username}`.toLowerCase()
+      : p.username.toLowerCase();
+    const matchesStudent = studentSearch 
+      ? studentFullName.includes(studentSearch.toLowerCase().trim())
+      : true;
+    return matchesBatch && matchesStudent;
+  });
 
   // Recalculate dashboard stats based on filter
   let totalCollected = 0;
@@ -127,48 +142,88 @@ function TeacherFees() {
         </div>
       )}
 
-      {/* Batch Timing Dropdown Filter */}
-      {batches && batches.length > 0 && (
+      {/* Filters (Batch and Student Search) */}
+      <div
+        className="card filter-card"
+        style={{ marginBottom: "2rem", padding: "1.25rem" }}
+      >
         <div
-          className="card filter-card"
-          style={{ marginBottom: "2rem", padding: "1.25rem" }}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "2rem",
+            flexWrap: "wrap",
+          }}
         >
+          {batches && batches.length > 0 && (
+            <div
+              className="form-group"
+              style={{
+                marginBottom: 0,
+                display: "flex",
+                alignItems: "center",
+                gap: "0.75rem",
+              }}
+            >
+              <label
+                htmlFor="fees-batch-filter"
+                style={{
+                  margin: 0,
+                  fontWeight: "600",
+                  color: "var(--text-secondary)",
+                }}
+              >
+                Batch Timing:
+              </label>
+              <select
+                id="fees-batch-filter"
+                value={selectedBatch}
+                onChange={(e) => setSelectedBatch(e.target.value)}
+                style={{ maxWidth: "260px", margin: 0 }}
+              >
+                <option value="">-- All Batches --</option>
+                {batches.map((b) => (
+                  <option key={b._id} value={b._id}>
+                    {b.name} ({b.timeSlot})
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
+
           <div
             className="form-group"
             style={{
               marginBottom: 0,
               display: "flex",
               alignItems: "center",
-              gap: "1rem",
-              flexWrap: "wrap",
+              gap: "0.75rem",
+              flexGrow: 1,
+              maxWidth: "400px",
             }}
           >
             <label
-              htmlFor="fees-batch-filter"
+              htmlFor="fees-student-search"
               style={{
                 margin: 0,
                 fontWeight: "600",
                 color: "var(--text-secondary)",
+                whiteSpace: "nowrap",
               }}
             >
-              Filter by Class Batch Timing:
+              Search Student:
             </label>
-            <select
-              id="fees-batch-filter"
-              value={selectedBatch}
-              onChange={(e) => setSelectedBatch(e.target.value)}
-              style={{ maxWidth: "320px", margin: 0 }}
-            >
-              <option value="">-- All Batches --</option>
-              {batches.map((b) => (
-                <option key={b._id} value={b._id}>
-                  {b.name} ({b.timeSlot})
-                </option>
-              ))}
-            </select>
+            <input
+              id="fees-student-search"
+              type="text"
+              placeholder="Type name or username..."
+              value={studentSearch}
+              onChange={(e) => setStudentSearch(e.target.value)}
+              style={{ margin: 0, width: "100%" }}
+            />
           </div>
         </div>
-      )}
+      </div>
 
       {/* Aggregate Stats Cards */}
       <div className="stats-grid">
@@ -214,7 +269,11 @@ function TeacherFees() {
                 <tbody>
                   {filteredUnpaid.map((item) => (
                     <tr key={item._id}>
-                      <td>{item.username}</td>
+                      <td>
+                        {item.firstName || item.lastName
+                          ? `${item.firstName} ${item.lastName} (${item.username})`
+                          : item.username}
+                      </td>
                       <td>{item.monthName || "Monthly"}</td>
                       <td>{item.dueDate}</td>
                       <td className="text-warning">${item.amount}</td>
@@ -259,7 +318,11 @@ function TeacherFees() {
                 <tbody>
                   {filteredLedger.map((item) => (
                     <tr key={item._id}>
-                      <td>{item.username}</td>
+                      <td>
+                        {item.firstName || item.lastName
+                          ? `${item.firstName} ${item.lastName} (${item.username})`
+                          : item.username}
+                      </td>
                       <td>{item.monthName || "Monthly"}</td>
                       <td>${item.amount}</td>
                       <td>

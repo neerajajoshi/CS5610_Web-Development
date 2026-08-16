@@ -462,3 +462,11 @@ body {
 .password-toggle-btn:hover {
   color: var(--primary-color);
 }
+
+/* Required field indicator star */
+.required-star {
+  color: var(--danger-color);
+  margin-left: 0.25rem;
+  font-weight: 700;
+}
+

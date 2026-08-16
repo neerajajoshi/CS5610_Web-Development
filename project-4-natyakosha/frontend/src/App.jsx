@@ -28,7 +28,12 @@ function App() {
       const data = await response.json();
       if (response.ok) {
         setUser(data);
-        setView(data.role === "teacher" ? "curriculum_editor" : "learning");
+        if (data.role === "student" && data.isDefaultPassword) {
+          setView("student_dashboard");
+          alert("Security Notice: You are currently logged in with the default password 'student123'. Please change your password immediately to secure your account.");
+        } else {
+          setView(data.role === "teacher" ? "curriculum_editor" : "learning");
+        }
       } else {
         setUser(null);
       }
@@ -100,7 +105,12 @@ function App() {
       setUsernameInput("");
       setPasswordInput("");
       setShowPassword(false);
-      setView(data.role === "teacher" ? "curriculum_editor" : "learning");
+      if (data.role === "student" && data.isDefaultPassword) {
+        setView("student_dashboard");
+        alert("Security Notice: You are currently logged in with the default password 'student123'. Please change your password immediately to secure your account.");
+      } else {
+        setView(data.role === "teacher" ? "curriculum_editor" : "learning");
+      }
     } catch (err) {
       setAuthError(err.message);
     }

@@ -13,6 +13,7 @@
     "express": "^4.19.2",
     "express-session": "^1.18.0",
     "mongodb": "^6.8.0",
+    "natyakosha-root": "file:..",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0"
   },

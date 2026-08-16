@@ -124,7 +124,7 @@ The learning portal displaying tutorial cards with embedded YouTube videos for r
 The project is structured with a separate `frontend` (React client application built with Vite) and a `backend` (Express API server backed by native MongoDB client):
 
 ```
-project-3-natyakosha/
+project-4-natyakosha/
 ├── backend/                  # Server-side logic & API
 │   ├── config/               # Infrastructure & auth configuration
 │   │   ├── db.js             # Native MongoDB Connection client
@@ -187,7 +187,7 @@ project-3-natyakosha/
 
 1. Navigate to the project directory:
    ```bash
-   cd project-3-natyakosha
+   cd project-4-natyakosha
    ```
 2. Install root and package dependencies:
    ```bash

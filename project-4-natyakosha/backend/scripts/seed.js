@@ -63,13 +63,16 @@ async function seed() {
       "siddhi",
     ];
 
+    const studentCreatedAt = new Date();
+    studentCreatedAt.setDate(studentCreatedAt.getDate() - 180);
+
     studentUsernames.forEach((username) => {
       users.push({
         username,
         password: studentPasswordHash,
         role: "student",
         batchId: null,
-        createdAt: new Date(),
+        createdAt: studentCreatedAt,
       });
     });
 

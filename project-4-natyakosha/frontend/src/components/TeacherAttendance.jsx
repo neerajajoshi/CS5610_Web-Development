@@ -36,12 +36,16 @@ function TeacherAttendance({ batches }) {
           throw new Error(data.error || "Failed to fetch attendance data.");
         }
 
+        const { records, allowedStudents } = data;
+
         // Map existing attendance log or default to 'present'
-        if (activeBatch) {
-          const mappedRoster = activeBatch.students.map((username) => {
-            const existingLog = data.find((log) => log.username === username);
+        if (allowedStudents) {
+          const mappedRoster = allowedStudents.map((student) => {
+            const existingLog = records.find((log) => log.username === student.username);
             return {
-              username,
+              username: student.username,
+              firstName: student.firstName,
+              lastName: student.lastName,
               status: existingLog ? existingLog.status : "present", // Defaults to present
             };
           });
@@ -195,7 +199,9 @@ function TeacherAttendance({ batches }) {
                     {roster.map((student) => (
                       <tr key={student.username}>
                         <td className="student-name-cell">
-                          {student.username}
+                          {student.firstName || student.lastName
+                            ? `${student.firstName} ${student.lastName} (${student.username})`
+                            : student.username}
                         </td>
                         <td style={{ textAlign: "center" }}>
                           <label className="radio-label">

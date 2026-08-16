@@ -150,7 +150,9 @@ function TeacherCurriculum({ curriculum, onRefresh }) {
 
           <form onSubmit={handleSubmit} className="custom-form">
             <div className="form-group">
-              <label htmlFor="curriculum-title">Title / Name</label>
+              <label htmlFor="curriculum-title">
+                Title / Name<span className="required-star">*</span>
+              </label>
               <input
                 id="curriculum-title"
                 type="text"
@@ -179,7 +181,7 @@ function TeacherCurriculum({ curriculum, onRefresh }) {
 
             <div className="form-group">
               <label htmlFor="curriculum-description">
-                Description / Explanation
+                Description / Explanation<span className="required-star">*</span>
               </label>
               <textarea
                 id="curriculum-description"
@@ -242,34 +244,104 @@ function TeacherCurriculum({ curriculum, onRefresh }) {
         {/* Curriculum Directory List */}
         <div className="card list-card">
           <h3>Curriculum Directory ({curriculum.length})</h3>
-          <div className="item-list-container">
+          <div className="item-list-container" style={{ maxHeight: "600px", overflowY: "auto" }}>
             {curriculum.length === 0 ? (
               <p className="no-data">No items found.</p>
             ) : (
-              curriculum.map((item) => (
-                <div key={item._id} className="curriculum-list-item">
-                  <div className="item-meta">
-                    <span className={`badge badge-${item.type}`}>
-                      {item.type}
-                    </span>
-                    <h4>{item.title}</h4>
+              <>
+                {/* Theory & Text Category */}
+                <div className="curriculum-category-section">
+                  <div className="category-header-wrapper">
+                    <span className="category-header badge-theory">Theory & Texts</span>
                   </div>
-                  <div className="item-buttons">
-                    <button
-                      className="btn btn-sm btn-edit"
-                      onClick={() => handleEdit(item)}
-                    >
-                      Edit
-                    </button>
-                    <button
-                      className="btn btn-sm btn-delete"
-                      onClick={() => handleDelete(item._id)}
-                    >
-                      Delete
-                    </button>
-                  </div>
+                  {curriculum.filter(item => item.type === "theory").map((item) => (
+                    <div key={item._id} className="curriculum-list-item">
+                      <div className="item-meta">
+                        <h4>{item.title}</h4>
+                      </div>
+                      <div className="item-buttons">
+                        <button
+                          className="btn btn-sm btn-edit"
+                          onClick={() => handleEdit(item)}
+                        >
+                          Edit
+                        </button>
+                        <button
+                          className="btn btn-sm btn-delete"
+                          onClick={() => handleDelete(item._id)}
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                  {curriculum.filter(item => item.type === "theory").length === 0 && (
+                    <p className="no-data-sm">No theory items added yet.</p>
+                  )}
                 </div>
-              ))
+
+                {/* Mudra Category */}
+                <div className="curriculum-category-section" style={{ marginTop: "1.5rem" }}>
+                  <div className="category-header-wrapper">
+                    <span className="category-header badge-mudra">Mudra Gestures</span>
+                  </div>
+                  {curriculum.filter(item => item.type === "mudra").map((item) => (
+                    <div key={item._id} className="curriculum-list-item">
+                      <div className="item-meta">
+                        <h4>{item.title}</h4>
+                      </div>
+                      <div className="item-buttons">
+                        <button
+                          className="btn btn-sm btn-edit"
+                          onClick={() => handleEdit(item)}
+                        >
+                          Edit
+                        </button>
+                        <button
+                          className="btn btn-sm btn-delete"
+                          onClick={() => handleDelete(item._id)}
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                  {curriculum.filter(item => item.type === "mudra").length === 0 && (
+                    <p className="no-data-sm">No mudra items added yet.</p>
+                  )}
+                </div>
+
+                {/* Adavu Category */}
+                <div className="curriculum-category-section" style={{ marginTop: "1.5rem" }}>
+                  <div className="category-header-wrapper">
+                    <span className="category-header badge-adavu">Adavu Steps</span>
+                  </div>
+                  {curriculum.filter(item => item.type === "adavu").map((item) => (
+                    <div key={item._id} className="curriculum-list-item">
+                      <div className="item-meta">
+                        <h4>{item.title}</h4>
+                      </div>
+                      <div className="item-buttons">
+                        <button
+                          className="btn btn-sm btn-edit"
+                          onClick={() => handleEdit(item)}
+                        >
+                          Edit
+                        </button>
+                        <button
+                          className="btn btn-sm btn-delete"
+                          onClick={() => handleDelete(item._id)}
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                  {curriculum.filter(item => item.type === "adavu").length === 0 && (
+                    <p className="no-data-sm">No adavu items added yet.</p>
+                  )}
+                </div>
+              </>
             )}
           </div>
         </div>
